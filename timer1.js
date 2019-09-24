@@ -1,15 +1,25 @@
-let timeInput = parseInt(process.argv[2]);
+let timeArray = process.argv.slice(2);
 
 
-let timer =function (time){
-  if (time === ""|| time < 0 || time===NaN ){
+for (let item of timeArray){
+  let num = (parseInt(item));
+  if (num === ""|| num< 0 || num===NaN ){
     return "";
   } else {
-    return time*1000;
-  };
+    setTimeout(() => {process.stdout.write('\x07')}, num*1000);
+  }
 };
 
-setTimeout(() => {process.stdout.write('\x07')}, timer(timeInput));
+
+// // let timer =function (time){
+//   if (time === ""|| time < 0 || time===NaN ){
+//     return "";
+//   } else {
+//     return time*1000;
+// //   };
+// // };
+
+//setTimeout(() => {process.stdout.write('\x07')}, numArray);
 
 //console.log(timer);
 
